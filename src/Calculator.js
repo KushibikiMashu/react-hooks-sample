@@ -219,9 +219,18 @@ function Calculator() {
                 </div>
             </form>
             <div>
-                <input type="button" id="open" value="toggle" onClick={(e) => setIsOpen(!isOpen)}/>
-                <div style={{display: isOpen ? "block" : "none"}}>{result}</div>
+                <input type="button" id="open" value="toggle" onClick={() => setIsOpen(!isOpen)}/>
+                {isOpen && <Result result={result} setIsOpen={setIsOpen} isOpen={isOpen}/>}
             </div>
+        </>
+    )
+}
+
+const Result = ({result,setIsOpen,isOpen}) => {
+    return (
+        <>
+            <div>{result}</div>
+            <input type="button" id="open" value="toggle" onClick={() => setIsOpen(!isOpen)}/>
         </>
     )
 }
