@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import ChildComponent from "./ChildComponent"
 
 function callCalculatorClass(age, income, grade) {
-  return [age, income, grade, age + income]
+  return [age, income, grade, 0]
 }
 
 function Calculator() {
@@ -17,34 +17,27 @@ function Calculator() {
     <>
       <ChildComponent handleChange={handleChange} />
       <div>
+        {isOpen && (
+          <Result elements={elements} setIsOpen={setIsOpen} isOpen={isOpen} />
+        )}
         <input
           type="button"
           id="open"
           value="toggle"
           onClick={() => setIsOpen(!isOpen)}
         />
-        {isOpen && (
-          <Result elements={elements} setIsOpen={setIsOpen} isOpen={isOpen} />
-        )}
       </div>
     </>
   )
 }
 
-const Result = ({ elements, setIsOpen, isOpen }) => {
-  if (elements === null) return
+const Result = ({ elements }) => {
   const { age, income, grade } = elements
   const [a, b, c, d] = callCalculatorClass(age, income, grade)
   const result = a + b + c + d
   return (
     <>
       <div>{result}</div>
-      <input
-        type="button"
-        id="open"
-        value="toggle"
-        onClick={() => setIsOpen(!isOpen)}
-      />
     </>
   )
 }
