@@ -1,15 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react"
+import ReactDOM from "react-dom"
 // import './index.css';
 // import App from './App';
 // import * as serviceWorker from './serviceWorker';
 
-import Board from './Board'
-import {observe} from "./Game";
+import Board from "./Board"
+import { observe } from "./Game"
 
-import Calculator from './Calculator';
+import Calculator from "./Calculator"
 
-const root = document.getElementById('root');
+const root = document.getElementById("root")
 
 // observe(knightPosition =>{
 //     ReactDOM.render(
@@ -18,13 +18,7 @@ const root = document.getElementById('root');
 //     )}
 // );
 
-
-
-ReactDOM.render(
-    <Calculator/>,
-    root
-);
-
+ReactDOM.render(<Calculator />, root)
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 

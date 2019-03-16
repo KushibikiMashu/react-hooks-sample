@@ -1,31 +1,33 @@
-import React from 'react';
-import {ItemTypes} from "./Constants";
-import {DragSource} from 'react-dnd';
+import React from "react"
+import { ItemTypes } from "./Constants"
+import { DragSource } from "react-dnd"
 
 const knightSource = {
-    beginDrag(props) {
-        return {};
-    }
-};
-
-function collect(connect, monitor) {
-    return {
-        connectDragSource: connect.dragSource(),
-        isDragging: monitor.isDragging()
-    }
+  beginDrag(props) {
+    return {}
+  },
 }
 
-function Knight({connectDragSource, isDragging}) {
-    return connectDragSource(
-        <div style={{
-            opacity: isDragging ? 0.5: 1,
-            fontSize: 36,
-            fontWeight: 'bold',
-            cursor: 'move'
-        }}>
-            ♘
-        </div>
-    );
-};
+function collect(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging(),
+  }
+}
 
-export default DragSource(ItemTypes.KNIGHT, knightSource, collect)(Knight);
+function Knight({ connectDragSource, isDragging }) {
+  return connectDragSource(
+    <div
+      style={{
+        opacity: isDragging ? 0.5 : 1,
+        fontSize: 36,
+        fontWeight: "bold",
+        cursor: "move",
+      }}
+    >
+      ♘
+    </div>
+  )
+}
+
+export default DragSource(ItemTypes.KNIGHT, knightSource, collect)(Knight)
