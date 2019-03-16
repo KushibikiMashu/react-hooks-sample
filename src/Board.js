@@ -2,6 +2,7 @@ import React from 'react';
 import Square from './Square';
 import Knight from './Knight';
 import {moveKnight, camMoveKnight} from "./Game";
+import {DragDropContextProvider} from 'react-dnd';
 
 function renderSquare(i, [knightX, knightY]) {
     const x = i % 8;
@@ -41,6 +42,6 @@ function Board({knightPosition}) {
             {squares}
         </div>
     );
-};
+}
 
 export default Board;
